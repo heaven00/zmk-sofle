@@ -28,12 +28,24 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
-    scroll_encoder: scroll_encoder {
-        compatible = "zmk,behavior-sensor-rotate";
-        #sensor-binding-cells = <0>;
-        bindings = <&msc SCRL_DOWN>, <&msc SCRL_UP>;
+    u_mt: u_mt {
+        compatible = "zmk,behavior-hold-tap";
+        label = "U_MT";
+        bindings = <&kp>, <&kp>;
 
-        tap-ms = <100>;
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
+    };
+
+    u_lt: u_lt {
+        compatible = "zmk,behavior-hold-tap";
+        label = "U_LT";
+        bindings = <&mo>, <&kp>;
+
+        #binding-cells = <2>;
+        flavor = "tap-preferred";
+        tapping-term-ms = <200>;
     };
 
     behaviors {
